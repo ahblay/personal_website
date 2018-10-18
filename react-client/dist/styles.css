@@ -23,3 +23,13 @@ footer {
     background-color: black;
     color: white;
 }
+
+#title-background {
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+}
+
+body {
+    margin: 0px;
+}
