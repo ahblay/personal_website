@@ -28,6 +28,10 @@
   },
   "homepage": "https://github.com/ahblay/personal_website#readme",
   "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "react": "^16.5.2",
