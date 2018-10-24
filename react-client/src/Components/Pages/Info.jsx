@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-//import Scheduler from '../Modals/Scheduler';
+import Scheduler from '../Modals/Scheduler';
 
 const Modal = ({ handleClose, show, children }) => {
     const showHideClassName = show ? 'modal display-block' : 'modal display-none';
 
     return (
         <div className={showHideClassName}>
-            <section className='modal-main'>
+            <section class='modal-main'>
                 {children}
                 <button onClick={handleClose}>
                     Close
                 </button>
+                <Scheduler />
             </section>
         </div>
     );
@@ -22,6 +23,8 @@ class Info extends Component {
     constructor(props) {
         super(props);
         this.state = { show: false };
+        this.showModal = this.showModal.bind(this);
+        this.hideModal = this.hideModal.bind(this);
       }
 
     showModal() {
@@ -63,11 +66,11 @@ class Info extends Component {
                     <div class="section-content projects">
                         <div class="ss-item">
                             <div class="ss-header">
-                                <span onClick={ this.showModal.bind(this) }>Employee Scheduling Software</span>
+                                <span onClick={ this.showModal }>Employee Scheduling Software</span>
                                 <span class="right-align smaller">
                                     Nov. '17 - Jul. '18
                                 </span>
-                                <Modal show={ this.state.show } handleClose={this.hideModal.bind(this)}></Modal>
+                                <Modal show={ this.state.show } handleClose={ this.hideModal }></Modal>
                             </div>
                             <ul>
                                 <li>

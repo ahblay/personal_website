@@ -214,9 +214,9 @@ a.anchor {
     position:fixed;
     background: white;
     width: 80%;
-    height: auto;
-    top:50%;
-    left:50%;
+    height: 80%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%,-50%);
 }
 
@@ -228,5 +228,79 @@ a.anchor {
     display: none;
 }
 
+.modal-content {
+    display: grid;
+    grid-template-rows: repeat(12, 1fr);
+    grid-template-columns: repeat(12, 1fr);
+    margin: 10px;
+    height: 90%;
+}
+
+.schedule-calendar {
+    grid-column: 1 / 9;
+    grid-row: 1 / 7;
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 35px 1fr;
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
+    margin-bottom: -10px;
+}
+
+.day {
+    display: grid;
+    height: 100%;
+    grid-auto-rows: 1fr;
+}
+
+.day div {
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+}
+
+.day-name {
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+    font-size: 19px;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.schedule-prefs {
+    grid-column: 9 / 13;
+    grid-row: 1 / 13;
+    border: 1px solid gray;
+    margin-left: 10px;
+    margin-bottom: -10px;
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 35px repeat(8, 1fr);
+}
+
+.schedule-output {
+    grid-column: 1 / 9;
+    grid-row: 7 / 13;
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 35px 1fr;
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
+    margin-top: 10px;
+}
+
+.shift {
+    font-size: 14px;
+    font-variant: normal;
+    text-align: center;
+}
+
+.emp {
+    grid-column: 1 / 4;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
 
 
