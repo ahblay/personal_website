@@ -303,4 +303,15 @@ a.anchor {
     grid-template-columns: repeat(3, 1fr);
 }
 
+.unselected {
+    background-color: gray;
+}
+
+.available {
+    background-color: green;
+}
+
+.unavailable {
+    background-color: red;
+}
 
