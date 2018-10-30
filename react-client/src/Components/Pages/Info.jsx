@@ -28,9 +28,7 @@ class Info extends Component {
     }
 
     showModal() {
-        console.log(this)
         this.setState({ show: true });
-        console.log(this.state);
     }
 
     hideModal() {
