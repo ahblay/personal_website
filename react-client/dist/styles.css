@@ -242,7 +242,7 @@ a.anchor {
     display: grid;
     height: 100%;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: 35px 1fr;
+    grid-template-rows: 1fr;
     border-top: 1px solid gray;
     border-right: 1px solid gray;
     margin-bottom: -10px;
@@ -251,12 +251,7 @@ a.anchor {
 .day {
     display: grid;
     height: 100%;
-    grid-auto-rows: 1fr;
-}
-
-.day div {
-    border-bottom: 1px solid gray;
-    border-left: 1px solid gray;
+    grid-auto-rows: 35px 1fr;
 }
 
 .day-name {
@@ -291,7 +286,15 @@ a.anchor {
     margin-top: 10px;
 }
 
+.shifts {
+    display: grid;
+    height: 100%;
+    grid-auto-rows: 1fr;
+}
+
 .shift {
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
     font-size: 14px;
     font-variant: normal;
     text-align: center;
@@ -313,5 +316,13 @@ a.anchor {
 
 .unavailable {
     background-color: red;
+}
+
+.prefer {
+    background-color: green;
+}
+
+.fine {
+    background-color: yellow;
 }
 
