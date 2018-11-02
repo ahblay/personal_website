@@ -58,6 +58,25 @@ class DayHeader extends Component {
 
         // pass state data back to parent component
         this.props.getData(this.state)
+
+        // pass updated employee data back to employee component
+        this.updateEmployeeData(currentName, this.state.name, statusDict[currentName]);
+    }
+
+    updateEmployeeData = (empName, day, value) => {
+        let updatedData;
+        if (day == "Saturday" || day == "Sunday") {
+            updatedData = {"day": day,
+                           "value": [value, value, value],
+                           "name": empName
+            }
+        } else {
+            updatedData = {"day": day,
+                           "value": [value, value],
+                           "name": empName
+            }
+        }
+        this.props.updateEmp(updatedData);
     }
 
     render() {

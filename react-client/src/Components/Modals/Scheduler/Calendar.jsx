@@ -10,13 +10,13 @@ class Calendar extends Component {
 
         return (
             <div className={"schedule-calendar"}>
-                <Day name="Sunday" highlightData={this.props.dataFromPrefs} />
-                <Day name="Monday" highlightData={this.props.dataFromPrefs} />
-                <Day name="Tuesday" highlightData={this.props.dataFromPrefs} />
-                <Day name="Wednesday" highlightData={this.props.dataFromPrefs} />
-                <Day name="Thursday" highlightData={this.props.dataFromPrefs} />
-                <Day name="Friday" highlightData={this.props.dataFromPrefs} />
-                <Day name="Saturday" highlightData={this.props.dataFromPrefs} />
+                <Day name="Sunday" highlightData={this.props.dataFromPrefs} updateEmp={this.props.updateEmp} />
+                <Day name="Monday" highlightData={this.props.dataFromPrefs} updateEmp={this.props.updateEmp} />
+                <Day name="Tuesday" highlightData={this.props.dataFromPrefs} updateEmp={this.props.updateEmp} />
+                <Day name="Wednesday" highlightData={this.props.dataFromPrefs} updateEmp={this.props.updateEmp} />
+                <Day name="Thursday" highlightData={this.props.dataFromPrefs} updateEmp={this.props.updateEmp} />
+                <Day name="Friday" highlightData={this.props.dataFromPrefs} updateEmp={this.props.updateEmp} />
+                <Day name="Saturday" highlightData={this.props.dataFromPrefs} updateEmp={this.props.updateEmp} />
             </div>
         );
     };

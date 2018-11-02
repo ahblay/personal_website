@@ -18,10 +18,12 @@ class Day extends Component {
             <div class="day">
                 <DayHeader name={this.props.name}
                            highlightData={this.props.highlightData}
+                           updateEmp={this.props.updateEmp}
                            getData={this.getStateFromChild} />
                 <Shifts name={this.props.name}
                         availabilityData={this.state.availabilityData}
-                        highlightData={this.props.highlightData} />
+                        highlightData={this.props.highlightData}
+                        updateEmp={this.props.updateEmp} />
             </div>
         )
     }

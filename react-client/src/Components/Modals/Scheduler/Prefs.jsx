@@ -40,14 +40,14 @@ class Prefs extends Component {
                 <div className={"emp-header"}>Name</div>
                 <div className={"emp-header"}>Roles</div>
                 <div className={"emp-header"}>Prefs</div>
-                <Employee name="Ann" getData={this.getData} />
-                <Employee name="Lily" getData={this.getData} />
-                <Employee name="Tim" getData={this.getData} />
-                <Employee name="Jess" getData={this.getData} />
-                <Employee name="Sara" getData={this.getData} />
-                <Employee name="Jill" getData={this.getData} />
-                <Employee name="Dan" getData={this.getData} />
-                <Employee name="Kev" getData={this.getData} />
+                <Employee name="Ann" getData={this.getData} updatedEmp={this.props.updatedEmp} />
+                <Employee name="Lily" getData={this.getData} updatedEmp={this.props.updatedEmp} />
+                <Employee name="Tim" getData={this.getData} updatedEmp={this.props.updatedEmp} />
+                <Employee name="Jess" getData={this.getData} updatedEmp={this.props.updatedEmp} />
+                <Employee name="Sara" getData={this.getData} updatedEmp={this.props.updatedEmp} />
+                <Employee name="Jill" getData={this.getData} updatedEmp={this.props.updatedEmp} />
+                <Employee name="Dan" getData={this.getData} updatedEmp={this.props.updatedEmp} />
+                <Employee name="Kev" getData={this.getData} updatedEmp={this.props.updatedEmp} />
             </div>
         )
     }

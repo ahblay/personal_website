@@ -8,10 +8,14 @@ class Shifts extends Component {
     render() {
         if (this.props.name === "Sunday" || this.props.name === "Saturday") {
             return ( <Weekend availabilityData={this.props.availabilityData}
-                              highlightData={this.props.highlightData} /> )
+                              highlightData={this.props.highlightData}
+                              updateEmp={this.props.updateEmp}
+                              name={this.props.name} /> )
         } else {
             return ( <Weekday availabilityData={this.props.availabilityData}
-                              highlightData={this.props.highlightData} /> )
+                              highlightData={this.props.highlightData}
+                              updateEmp={this.props.updateEmp}
+                              name={this.props.name} /> )
         }
     }
 }
@@ -159,6 +163,14 @@ class Weekend extends Component {
         return true;
     }
 
+    updateEmployeeData = (empName, day, value) => {
+        let updatedData = {"day": day,
+                           "value": value,
+                           "name": empName}
+        console.log(updatedData)
+        this.props.updateEmp(updatedData);
+    }
+
     togglePrefs = (shift) => {
 
         let empName = this.props.highlightData.name;
@@ -171,11 +183,12 @@ class Weekend extends Component {
                 }
             )
         });
+        this.updateEmployeeData(empName, this.props.name, prefsDict[empName])
     }
 
     render() {
         let empName = (this.props.highlightData ? this.props.highlightData.name : null);
-        let availability = (this.state.availability == "unavailable" ? false : true);
+        let availability = (this.state.availability == "available" ? true : false);
 
         let firstShift = 0;
         let secondShift = 1;
@@ -346,6 +359,13 @@ class Weekday extends Component {
         return true;
     }
 
+    updateEmployeeData = (empName, day, value) => {
+        let updatedData = {"day": day,
+                           "value": value,
+                           "name": empName}
+        this.props.updateEmp(updatedData);
+    }
+
     togglePrefs = (shift) => {
 
         let empName = this.props.highlightData.name;
@@ -358,6 +378,7 @@ class Weekday extends Component {
                 }
             )
         });
+        this.updateEmployeeData(empName, this.props.name, prefsDict[empName])
     }
 
     render() {
