@@ -271,7 +271,7 @@ a.anchor {
     display: grid;
     height: 100%;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 35px repeat(8, 1fr);
+    grid-template-rows: 35px repeat(8, 1fr) 35px;
 }
 
 .schedule-output {

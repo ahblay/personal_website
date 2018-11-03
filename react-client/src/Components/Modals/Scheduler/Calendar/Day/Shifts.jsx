@@ -167,7 +167,6 @@ class Weekend extends Component {
         let updatedData = {"day": day,
                            "value": value,
                            "name": empName}
-        console.log(updatedData)
         this.props.updateEmp(updatedData);
     }
 
@@ -335,9 +334,9 @@ class Weekday extends Component {
 
     updatePrefsDict = (dailyAvailability) => {
         let prefsDict = this.state.prefs;
-        let available = ["available", "available", "available"];
-        let unavailable = ["unavailable", "unavailable", "unavailable"];
-        let unselected = ["unselected", "unselected", "unselected"];
+        let available = ["available", "available"];
+        let unavailable = ["unavailable", "unavailable"];
+        let unselected = ["unselected", "unselected"];
         let current = prefsDict[this.currentEmp];
         let revert = (this.arraysEqual(current, unavailable) ||
                       this.arraysEqual(current, unselected)

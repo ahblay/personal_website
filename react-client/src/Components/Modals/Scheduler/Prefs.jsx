@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import Employee from './Prefs/Employee';
+import SubmitPrefs from './Prefs/SubmitPrefs';
 
 class Prefs extends Component {
     constructor(props) {
         super(props);
-        this.state = {highlightPrefs: false, currentName: null};
+        this.state = {
+            highlightPrefs: false,
+            currentName: null
+        };
     }
 
     // Ensures the prefs are only highlighted if they were previously unselected,
@@ -48,6 +52,7 @@ class Prefs extends Component {
                 <Employee name="Jill" getData={this.getData} updatedEmp={this.props.updatedEmp} />
                 <Employee name="Dan" getData={this.getData} updatedEmp={this.props.updatedEmp} />
                 <Employee name="Kev" getData={this.getData} updatedEmp={this.props.updatedEmp} />
+                <SubmitPrefs prefData={this.props.updatedEmp} />
             </div>
         )
     }

@@ -46,7 +46,6 @@ class Employee extends Component {
     };
 
     render() {
-         console.log(this.state.prefs)
          return (
             <div className={"emp"}>
                 <div className={"emp-name"}>
