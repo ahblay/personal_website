@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class SubmitPrefs extends Component {
     constructor(props) {
@@ -103,14 +104,17 @@ class SubmitPrefs extends Component {
         }
     }
 
-    getPrefData = () => {
+    submitPrefs = () => {
         console.log(this.state.prefs);
+        axios.post("/receivePrefs", {
+            prefs: this.state.prefs
+        })
     }
 
     render () {
         return (
             <div>
-                <button type="button" onClick={this.getPrefData}>Create Schedule</button>
+                <button type="button" onClick={this.submitPrefs}>Create Schedule</button>
             </div>
         )
     }
