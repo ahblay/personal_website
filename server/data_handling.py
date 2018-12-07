@@ -14,8 +14,9 @@ def main():
 
     scheduler = algorithm.Scheduler(data["prefs"])
 
-    objective = scheduler.build_schedule()
-    pp(objective)
+    schedule = scheduler.build_schedule()
+
+    print(schedule)
 
 # Start process
 if __name__ == '__main__':

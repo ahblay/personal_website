@@ -197,17 +197,17 @@ class Weekend extends Component {
             <div className={"shifts"}>
                 <div className={"shift " + (this.state.showPrefs ? this.state.prefs[empName][firstShift] : "")}
                      onClick={(this.state.showPrefs && availability ? () => this.togglePrefs(firstShift) : null)}>
-                    <p>Barista (4)</p>
+                    <p>Barista (3)</p>
                     <p>Manager (1)</p>
                 </div>
                 <div className={"shift " + (this.state.showPrefs ? this.state.prefs[empName][secondShift] : "")}
                      onClick={(this.state.showPrefs && availability ? () => this.togglePrefs(secondShift) : null)}>
-                    <p>Barista (3)</p>
+                    <p>Barista (2)</p>
                     <p>Manager (1)</p>
                 </div>
                 <div className={"shift " + (this.state.showPrefs ? this.state.prefs[empName][thirdShift] : "")}
                      onClick={(this.state.showPrefs && availability ? () => this.togglePrefs(thirdShift) : null)}>
-                    <p>Barista (2)</p>
+                    <p>Barista (1)</p>
                     <p>Manager (1)</p>
                 </div>
             </div>
@@ -391,12 +391,12 @@ class Weekday extends Component {
             <div className={"shifts"}>
                 <div className={"shift " + (this.state.showPrefs ? this.state.prefs[empName][firstShift] : "")}
                      onClick={(this.state.showPrefs && availability ? () => this.togglePrefs(firstShift) : null)}>
-                    <p>Barista (4)</p>
+                    <p>Barista (3)</p>
                     <p>Manager (1)</p>
                 </div>
                 <div className={"shift " + (this.state.showPrefs ? this.state.prefs[empName][secondShift] : "")}
                      onClick={(this.state.showPrefs && availability ? () => this.togglePrefs(secondShift) : null)}>
-                    <p>Barista (3)</p>
+                    <p>Barista (2)</p>
                     <p>Manager (1)</p>
                 </div>
             </div>

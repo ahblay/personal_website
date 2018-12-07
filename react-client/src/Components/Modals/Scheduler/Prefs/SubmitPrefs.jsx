@@ -109,6 +109,10 @@ class SubmitPrefs extends Component {
         axios.post("/receivePrefs", {
             prefs: this.state.prefs
         })
+        .then(function (response) {
+            let schedule = JSON.parse(response.data.replace(/'/g, '"'));
+            console.log(schedule)
+        })
     }
 
     render () {

@@ -19,6 +19,8 @@ app.listen(PORT, () => {
 });
 
 function callName(req, res) {
+    var schedule;
+
     var myPythonScriptPath = '/users/abel/desktop/personal_website/server/data_handling.py';
 
     // Use python shell
@@ -29,7 +31,7 @@ function callName(req, res) {
 
     pyshell.on('message', function (message) {
         // received a message sent from the Python script (a simple "print" statement)
-        console.log(message);
+        schedule = message;
     });
 
     // end the input stream and allow the process to exit
@@ -39,6 +41,7 @@ function callName(req, res) {
         };
 
         console.log('finished');
+        res.json(schedule)
     });
 }
 

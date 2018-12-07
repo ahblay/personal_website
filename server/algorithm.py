@@ -12,8 +12,8 @@ class Scheduler:
         self.weekday_days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
         self.weekend_shifts = [0, 1, 2]
         self.weekday_shifts = [0, 1]
-        self.weekend_shift_need = [[4, 1], [3, 1], [2, 1]]
-        self.weekday_shift_need = [[4, 1], [3, 1]]
+        self.weekend_shift_need = [[3, 1], [2, 1], [1, 1]]
+        self.weekday_shift_need = [[3, 1], [2, 1]]
 
         self.num_weekend_days = range(len(self.weekend_days))
         self.num_weekday_days = range(len(self.weekday_days))
@@ -35,8 +35,9 @@ class Scheduler:
 
         # Objective function
         # erds = employee role day shift combo
-        objective = sum([self.coefficient(erds) * x[erds] for erds in vars])
+        objective = lpSum([self.coefficient(erds) * x[erds] for erds in vars])
         schedule_model += objective
+        print(objective)
 
         # CONSTRAINTS
         # correct number of employees per shift on a weekend day
@@ -49,14 +50,84 @@ class Scheduler:
             schedule_model += lpSum(x[weekday_matrix[shift][day][role][employee]] for employee in self.num_emps) \
                               == self.weekday_shift_need[shift][role]
 
+        # max number of shifts per week
+        for employee in self.num_emps:
+            weekday_max_shifts = lpSum(x[weekday_matrix[shift][day][role][employee]]
+                                       for role, day, shift in self.product_range(self.num_roles,
+                                                                                  self.num_weekday_days,
+                                                                                  self.weekday_shifts))
+            weekend_max_shifts = lpSum(x[weekend_matrix[shift][day][role][employee]]
+                                       for role, day, shift in self.product_range(self.num_roles,
+                                                                                  self.num_weekend_days,
+                                                                                  self.weekend_shifts))
+            # pp(weekday_max_shifts, weekend_max_shifts)
+            schedule_model += (weekday_max_shifts + weekend_max_shifts) <= 7
+
         schedule_model.solve()
+        status = LpStatus[schedule_model.status]
+
+        #pp(schedule_model.constraints)
+        #print(schedule_model.constraints)
 
         selected_erds = []
         for erds in vars:
             if x[erds].value() == 1.0:
                 selected_erds.append(erds)
 
-        return selected_erds
+        schedule_dict = self.restructure_results(selected_erds)
+
+        if status == "Infeasible":
+            return status
+        else:
+            return schedule_dict
+
+    def restructure_results(self, results):
+        emp = 0
+        role = 1
+        day = 2
+        shift = 3
+
+        schedule_dict = {"Sunday": [
+                                [],
+                                [],
+                                [],
+                            ],
+                         "Monday": [
+                                [],
+                                [],
+                            ],
+                         "Tuesday": [
+                                [],
+                                [],
+                            ],
+                         "Wednesday": [
+                                [],
+                                [],
+                            ],
+                         "Thursday": [
+                                [],
+                                [],
+                            ],
+                         "Friday": [
+                                [],
+                                [],
+                            ],
+                         "Saturday": [
+                                [],
+                                [],
+                                [],
+                            ],
+                         }
+
+        for result in results:
+            d = result[day]
+            s = result[shift]
+            e = result[emp]
+            r = result[role]
+
+            schedule_dict[d][s].append([e, r])
+
+        return schedule_dict
 
     def product_range(self, *args):
         return list(product(*args))
